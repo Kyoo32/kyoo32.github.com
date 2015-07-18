@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 	<html>
 		<head>
+			<meta charset="utf-8">
 			<title>Join us!</title>
+			<style>
+			fieldset {
+				border-style : ridge;
+				border : 100px 75px 25px 50px;
+				border-width :  50px;
+				}
+			legend{ 
+				display : none;
+				/*visibility : hidden;*/
+			}
+			</style>
 		</head>
 		<body>
 			<form action="http://taegon.kim/form.php" name="register" method="post" target="_blank">
-				 name : <input type = "text" name = "name" size = 10  placeholder = "name" required></br>
+			<fieldset>
+				<legend>Register</legend>
+				<div>
+				 <label for="name">
+				 name : <input type = "text" name = "name" size = 10  placeholder = "name" required>
+				 </label>
+				 </div>
+				 <div>
+				 <label for"password">
 				 password : <input type = "password" name="password" size = 10 maxlength= 8 required></br>
-				 password again : <input type = "password" name ="password_again" size = 10 maxlength = 8 required></br>
-				 email : <input type="email" name="email" size = 20 pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" autocomplete = "on" placeholder ="ID@email"  required> </br>
+				 password again : <input type = "password" name ="password_again" size = 10 maxlength = 8 required>
+				 </label>
+				 </div>
+				 <div>
+				 <label for="email">
+				 email : <input type="email" name="email" size = 20 pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" autocomplete = "on" placeholder ="ID@email"  required> 
+				</label>
+				</div>
+
 				</br></br>(Option)<br>
+				<label for="address">
 				address : <input type="text" name = "address" size = 50 >
 				</br>
+				</label>
+				<label for="birthday">
 				birthday :
 				<select name="birth_year">
 					<option value = ""> </option>
@@ -77,11 +107,15 @@
 					<option value = "31">31 </option>
 				</select>
 				</br>
-				gender: <label for="male">male </label>
+				</label>
+				<label for="gender">
+				gender: male 
 				 <input type="radio" name="sex" id="male" value="male">
-				 <label for="female">Female</label>
+				 female
 				 <input type="radio" name="sex" id="female" value="female"><br>
-				 <input type="submit" value="Submit">
+				 </label>
+				 </fieldset>
+				 <button type="submit">submit</button> 
 			</form>
 		</body>
 		</html>
