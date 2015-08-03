@@ -18,6 +18,7 @@ section#left-sidebar {
 	position:relative;
 	float: left;
 	width: 13vw;
+	min-width: 160px;
 	height: 100%;
 	margin: 8px;
 }
@@ -120,8 +121,18 @@ div.content-box:first-child{
 	height: 200px;
 }
 
+@media screen and (max-width: 1000px){
+	section#right-sidebar{
+		display: none;
+	}
+	/*
+	facebook chatroom
+	*/
+}
+
 section#right-sidebar{
 	position: relative;
+	
 	float: left;
 	width: 20vw;
 	height: 100vw;
@@ -129,7 +140,6 @@ section#right-sidebar{
 	margin-top: 10px;
 	margin-left: 10px;
 }
-
 div#right-sidebar-box{
 	position: relative;
 	width: 100%;
