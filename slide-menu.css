@@ -1,0 +1,101 @@
+html{
+	height: 100%
+}
+
+
+body{
+	position: relative;
+	margin: 0;
+	height: 100%;
+
+
+	overflow-x: hidden; 
+
+}
+
+nav#checked-slide-menu{
+
+	padding: 0;
+	width: 15vw;
+	height: 100%;
+	
+	background-color: pink;
+
+}
+div#container{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+
+	overflow-y:scroll;
+	
+	transition: left 0.5s linear;
+}
+
+input[type="checkbox"]:checked ~label + div#container {
+	left: 150px;
+}
+section#side-bar{
+	float: left;
+	width: 15vw;
+	height: 100%;
+	margin: 0;
+}
+
+input[type="checkbox"]{
+	opacity: 0;
+
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 1000;
+	height: 30px;
+	width: 30px;
+	padding: 0;
+	margin: 0;
+
+	transition: background,left 0.5s linear;
+}
+
+input[type="checkbox"] + label{
+	display: inline-block;
+
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 999;
+	background: url('menu1.png') no-repeat;
+	background-size: cover;
+	height: 30px;
+	width: 30px;
+	padding: 0;
+
+	transition: background,left 0.5s linear;
+}
+
+input[type="checkbox"]:checked + label{
+	left: 160px;
+}
+section#content-section{
+	position: absolute;
+	margin-left: 15vw;
+	padding: 15px;
+	margin-right: 500px;
+	float: left;
+	width: 700px;
+	height: 100%;
+	z-index: 50;
+
+
+}
+div.content-head{
+	height: 40px;
+	width: 100%;
+	line-height:40px;
+} 
+div.content{
+	height: 100%;
+}

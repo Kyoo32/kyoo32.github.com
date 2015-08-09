@@ -1,0 +1,43 @@
+body{
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+
+section#checked-slide-menu{
+
+
+}
+
+section#side-bar{
+	position: fixed;
+	float: left;
+	width: 15vw;
+	height: 100%;
+	background-color: pink;
+}
+div#slide-menu{
+	width: 100%;
+	height: 35px;
+	margin: 15px 0;
+	background-color: grey;
+}
+
+section#content-section{
+
+	margin-left: 15vw;
+	padding: 15px;
+	float: left;
+	width: 85vw;
+	height: 100%;
+
+
+}
+div.content-head{
+	height: 40px;
+	width: 100%;
+	line-height:40px;
+} 
+div.content{
+	height: 100%;
+}

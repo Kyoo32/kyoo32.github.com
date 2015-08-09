@@ -98,6 +98,7 @@ div.leftside-row-more-info{
 }
 section#content-wrapper{
 	position: relative;
+
 	float: left;
 	width: 46vw;
 	height: 100vw;
