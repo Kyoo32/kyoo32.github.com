@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="slide-menu.css">
 		<title>Click the side bar!</title>
 	</head>
@@ -8,9 +9,9 @@
 		<nav id="checked-slide-menu">
 			<h3 style="margin:0; padding: 10px;">ANSWER</h3>
 			<ul class="menu">
-				<li class="menu-list">one</li>
-				<li class="menu-list">two</li>
-				<li class="menu-list">other</li>
+				<li class="menu-list"><a href="#one">one</a></li>
+				<li class="menu-list"><a href="#two">two</a></li>
+				<li class="menu-list"><a href="#other">other</a></li>
 			</ul>
 		</nav>
 		<input type="checkbox"id="menu-toggle"><label for="menu-toggle"></label>
@@ -21,12 +22,15 @@
 			<section id="content-section">
 				<div class="content-head">WEB UI</div>
 				<div class="content">
-					<div class="question"><span class="q">Q1.</span>why is a CDATA section necessary within a script tag?</div>
-					<p>A CDATA section is required if you need your document to parse as XML (e.g. when an XHTML page is interpreted as XML) and you want to be able to write literal i<10 and a && b instead of i&lt;10 and a &amp;&amp; b, as XHTML will parse the JavaScript code as parsed character data as opposed to character data by default. This is not an issue with scripts that are stored in external source files, but for any inline JavaScript in XHTML you will probably want to use a CDATA section.</p>
+					<div class="question" id="one"><span class="q">Q1.</span>why is a CDATA section necessary within a script tag?</div>
+					<p>A CDATA section is required if you need your document to parse as XML (e.g. when an XHTML page is interpreted as XML) and you want to be able to write literal i<10 and a && b instead of i '& l t ;' 10 and a '& a m p; & a m p;' b, as XHTML will parse the JavaScript code as parsed character data as opposed to character data by default. This is not an issue with scripts that are stored in external source files, but for any inline JavaScript in XHTML you will probably want to use a CDATA section.</p>
 
 					<p><a href="http://stackoverflow.com/questions/66837/when-is-a-cdata-section-necessary-within-a-script-tag">reference</a></p>
 
-					<div class="question"><span class="q">Q2.</span>
+					<p>[Korean]<br/>CDATA는 XML상에서 문서를 파싱할 때나 entity문자 대신 해당 기호 쓰고 싶을 때 명시해 주어야 합니다. 
+					XHTML은 자바스크립트 코드를 실제 문자데이터 하나하나로 취급하지 않고, 파싱되는 문자데이터 단위단위로 파싱합니다. 자바스크립트 파일이 외부로 연결되어 있다면, 파싱문제는 신경쓰지 않아도 됩니다. 자바스크립트 코드가 XHTML에 내장되어 있다면 CDATA부분을 필수적으로 넣어야 합니다.</p>
+
+					<div class="question" id="two"><span class="q">Q2.</span>
 					when the language attribute of script tag was deprecated?</div>
 
 					<p>The language attribute has been omitted when CSS4 was made and the type attribute, CSS5.</p>
@@ -35,7 +39,7 @@
 					<p><a href="http://stackoverflow.com/questions/2267476/html-script-tag-type-or-language-or-omit-both">reference2</a></p>
 					<p><a href="http://www.w3.org/TR/html5/obsolete.html#obsolete">reference3</a></p>
 
-					<h3><span="q">other</span="q"></h3>
+					<h3 id="other"><span="q">other</span="q"></h3>
 					<p>Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. </p>
 
 					<p>Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci. </p>
