@@ -6,7 +6,10 @@
 	<title>My Facebook</title>
 </head>
 <body>
+	<!-- header -->
 	<header id="global-header"></header>
+	<!-- /header -->
+	<!-- main -->
 	<main>
 		<section id="left-sidebar">
 			<div id="profile">
@@ -28,13 +31,24 @@
 			</div>
 		</section>
 		<section id="content-wrapper">
-			<div class="content-box"></div>
-			<div class="content-box"></div>
-			<div class="content-box"></div>
+			<div class="content-box"> 안녕하세요 </div>
+			<div class="content-box"> 네 반가워요</div>
 		</section>
 		<section id="right-sidebar">
 			<div id="right-sidebar-box"></div>
 		</section>
 	</main>
+	<!-- /main -->
+	<script>
+			window.onscroll= function(){
+				if(document.body.scrollHeight - document.body.scrollTop < 800) {
+						var newEle = document.createElement('div');
+						newEle.classList.add('content-box');
+						var wrapper = document.getElementById('content-wrapper');
+						wrapper.appendChild(newEle);
+				}
+			console.log(document.body.scrollHeight - document.body.scrollTop);	
+			}
+	</script>
 </body>
 </html>

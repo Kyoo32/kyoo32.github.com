@@ -5,13 +5,20 @@ body {
 	font-size: 12px;
 }
 
+
 header#global-header {
-	position: relative;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 42px;
 	background-color: #2B649B;
+	z-index: 100;
+}
+main {
+	position: relative;
+	margin-top: 42px;
+
 }
 
 section#left-sidebar {
@@ -103,14 +110,16 @@ section#content-wrapper{
 	width: 46vw;
 	height: 100vw;
 
+	font-size: 20px;
 	margin-top: 10px;
 }
 
 div.content-box{
 	position: relative;
 	width: 100%;
-	height: 400px;
+	height: 300px;
 	margin-bottom: 10px;
+	padding: 10px;
 
 	border-radius: 3px;
 	border-color: #dfe0e4 #e5e6e9 #e5e6e9;
@@ -118,9 +127,11 @@ div.content-box{
 	background-color: white;
 }
 
+/*
 div.content-box:first-child{
 	height: 200px;
 }
+*/
 
 @media screen and (max-width: 1000px){
 	section#right-sidebar{
@@ -139,7 +150,7 @@ section#right-sidebar{
 	height: 100vw;
 
 	margin-top: 10px;
-	margin-left: 10px;
+	margin-left: 30px;
 }
 div#right-sidebar-box{
 	position: relative;
