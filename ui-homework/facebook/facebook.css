@@ -3,6 +3,8 @@ body {
 	background-color: #E8EAED;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
+
+
 }
 
 
@@ -109,6 +111,7 @@ section#content-wrapper{
 	float: left;
 	width: 46vw;
 	height: 100vw;
+	color: black;
 
 	font-size: 20px;
 	margin-top: 10px;
@@ -127,6 +130,37 @@ div.content-box{
 	background-color: white;
 }
 
+div.content-box div.content-name{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	margin: 5px;
+}
+img.profile-image{
+	width: 40px; 
+	height: 40px;
+}
+div.content-box div.content-content{
+	position: relative;
+	width: 100%;
+	height: 170px;
+	margin: 5px;
+}
+div.content-box div.button-count{
+	position: relative;
+	width: 100%;
+	height: 20px;
+	margin: 5px;
+	margin-left: 10px;
+}
+div.content-box div.content-button{
+	position: relative;
+	width: 100%;
+	height: 20px;
+	margin: 5px;
+
+	border-top: 3px solid grey;
+}
 /*
 div.content-box:first-child{
 	height: 200px;
@@ -163,3 +197,4 @@ div#right-sidebar-box{
 	background-color: white;
 
 }
+
