@@ -2,8 +2,8 @@
 //scroll infinitly
 window.onscroll= function(){
 	var i = -1;
-	if(document.body.scrollHeight - document.body.scrollTop < 1000) {
-	//if(window.innerHeight - window.scrollY < 300) {
+	//if(document.body.scrollHeight - document.body.scrollTop < 1000) {
+	if(window.innerHeight - window.scrollY < 300) {
 
 		var newDiv = document.createElement('div');
 		newDiv.classList.add('content-box');
@@ -80,7 +80,8 @@ window.onscroll= function(){
 		console.log("No More Data");
 		return;
 	}
-	console.log(document.body.scrollHeight - document.body.scrollTop);
+	console.log(window.innerHeight - window.scrollY);
+	//console.log(document.body.scrollHeight - document.body.scrollTop);
 	//load five content-box from json
 	console.log("check");
     var xobj = new XMLHttpRequest();
