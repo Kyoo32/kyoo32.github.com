@@ -132,17 +132,6 @@ document.addEventListener("click", function(evt){
 });
 
 //load five content-box from json
-var xmlhttp = new XMLHttpRequest();
-var url = "five-content.txt";
-
-xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        var myArr = JSON.parse(xmlhttp.responseText);
-        myFunction(myArr);
-    }
-}
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
 
 function myFunction(arr) {
     var out = "";
@@ -168,7 +157,7 @@ function myFunction(arr) {
 		document.querySelector("share-count").innerHTML = out;
 		console.log(out);
 		//console.log(document.querySelector("content-name"));
-		if(arr[i].doesLike === true);
+		//if(arr[i].doesLike === true);
     }
 }
 
