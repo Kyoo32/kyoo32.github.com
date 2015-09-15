@@ -43,9 +43,9 @@
 			 		공유 <span class="share-count">4</span>개
 			 	</div>
 			 	<div class="content-button">
-			 		<img src="thumbs-up.svg"><span class="like-button">좋아요</span>
-			 		<img src="comment.svg"><span class="comment-button">댓글달기</span>
-			 		<img src="mail-forward.svg"><span class="share-button">공유하기</span>
+			 		<img src="thumbs-up.svg"><span class="like-button">좋아요 </span>
+			 		<img src="comment.svg"><span class="comment-button">댓글달기 </span>
+			 		<img src="mail-forward.svg"><span class="share-button">공유하기 </span>
 			 	</div>
 			</div>
 			<div class="content-box">
@@ -57,9 +57,9 @@
 			 		공유 <span class="share-count">0</span>개
 			 	</div>
 			 	<div class="content-button">
-			 		<img src="thumbs-up.svg"><span class="like-button">좋아요</span>
-			 		<img src="comment.svg"><span class="comment-button">댓글달기</span>
-			 		<img src="mail-forward.svg"><span class="share-button">공유하기</span>
+			 		<img src="thumbs-up.svg"><span class="like-button">좋아요 </span>
+			 		<img src="comment.svg"><span class="comment-button">댓글달기 </span>
+			 		<img src="mail-forward.svg"><span class="share-button">공유하기 </span>
 			 	</div>
 			</div>
 		</section>
@@ -82,13 +82,65 @@
 					newName.classList.add('content-name');
 					var newContent = document.createElement('div');
 					newContent.classList.add('content-content');
+					
+					//갯수 
+					var newCount = document.createElement('div');
+					newCount.classList.add('button-count');
+
+					var newLike = document.createElement('span');
+					newLike.classList.add("like-count");
+					newLike.textContent = 2;
+					newCount.appendChild(document.createTextNode("좋아요 "));
+					newCount.appendChild(newLike);
+					newCount.appendChild(document.createTextNode('개 '));
+
+					var newComment = document.createElement('span');
+					newComment.classList.add("comment-count");
+					newComment.textContent = 3;
+					newCount.appendChild(document.createTextNode("댓글 "));
+					newCount.appendChild(newComment);
+					newCount.appendChild(document.createTextNode('개 '));
+
+					var newShare = document.createElement('span');
+					newShare.classList.add("share-count");
+					newShare.textContent = 4;
+					newCount.appendChild(document.createTextNode("공유 "));
+					newCount.appendChild(newShare);
+					newCount.appendChild(document.createTextNode('개 '));
+					
+					//버튼
 					var newButton = document.createElement('div');
 					newButton.classList.add('content-button');
+
+					var likeImg = document.createElement('img');
+					likeImg.src="thumbs-up.svg";
+					var newLikeB = document.createElement('span');
+					newLikeB.classList.add("like-button");
+					newLikeB.textContent = '좋아요 ';
+					newButton.appendChild(likeImg);
+					newButton.appendChild(newLikeB);
+
+					var commentImg = document.createElement('img');
+					commentImg.src="comment.svg";
+					var newCommentB = document.createElement('span');
+					newCommentB.classList.add("comment-button");
+					newCommentB.textContent = '댓글달기 ';
+					newButton.appendChild(commentImg);
+					newButton.appendChild(newCommentB);
+
+					var shareImg = document.createElement('img');
+					shareImg.src="mail-forward.svg";
+					var newShareB = document.createElement('span');
+					newShareB.classList.add("share-button");
+					newShareB.textContent = '공유하기 ';
+					newButton.appendChild(shareImg);
+					newButton.appendChild(newShareB);
+
 					newDiv.appendChild(newName);
 					newDiv.appendChild(newContent);
+					newDiv.appendChild(newCount);
 					newDiv.appendChild(newButton);
-
-
+					
 
 					var wrapper = document.getElementById('content-wrapper');
 					wrapper.appendChild(newDiv);
@@ -151,6 +203,48 @@
 			}
 
 		});
+
+		//load five content-box from json
+		var xmlhttp = new XMLHttpRequest();
+		var url = "five-content.txt";
+		
+		xmlhttp.onreadystatechange = function() {
+		    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		        var myArr = JSON.parse(xmlhttp.responseText);
+		        myFunction(myArr);
+		    }
+		}
+		xmlhttp.open("GET", url, true);
+		xmlhttp.send();
+
+		function myFunction(arr) {
+		    var out = "";
+		    var i;
+		    for(i = 0; i < arr.length; i++) {
+		        out = arr[i].name.first + arr[i].name.last;
+				document.querySelector("content-name").innerHTML = out;
+				console.log(out);
+				console.log(document.querySelector("content-name"));
+				out = arr[i].content;
+				document.querySelector("content-content").innerHTML = out;
+				console.log(out);
+				console.log(document.querySelector("content-content"));
+				out = arr[i].likeCount;
+				document.querySelector("like-count").innerHTML = out;
+				console.log(out);
+				//console.log(document.querySelector("content-name"));
+				out = arr[i].commentCount;
+				document.querySelector("comment-count").innerHTML = out;
+				console.log(out);
+				//console.log(document.querySelector("content-name"));
+				out = arr[i].shareCount;
+				document.querySelector("share-count").innerHTML = out;
+				console.log(out);
+				//console.log(document.querySelector("content-name"));
+				if(arr[i].doesLike === true);
+		    }
+		}
+		
 	</script>
 </body>
 </html>

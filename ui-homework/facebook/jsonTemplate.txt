@@ -1,0 +1,17 @@
+[
+  {
+    'repeat:5': {
+      _id: '{{objectId()}}',
+      doesLike: '{{bool()}}',
+      likeCount: '{{int(0,)}}',
+      commentCount: '{{int(0,)}}',
+      shareCount: '{{int(0,)}}',
+      name: {
+        first: '{{firstName()}}',
+        last: '{{surname()}}'
+      },
+      content: '{{lorem(1, "paragraphs")}}',
+      registered: '{{moment(this.date(new Date(2015, 0, 1), new Date())).format("LLLL")}}'	
+    }
+  }
+]
