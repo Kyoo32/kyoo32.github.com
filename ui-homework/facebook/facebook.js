@@ -132,16 +132,21 @@ document.addEventListener("click", function(evt){
 });
 
 //load five content-box from json
-
 window.onscroll = function(){   
 	console.log("check");
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
-    	xobj.open('GET', 'page1.json', true); // Replace 'my_data' with the path to your file
+    var pageName = 'page';
+    for(int i=1 ; i <= 5 ; i++){
+    	pageName += 'i';
+    	pageName += '.json'
+    }
+    console.log(pageName);
+    xobj.open('GET', pageName, true); // Replace 'my_data' with the path to your file
     xobj.onreadystatechange = function () {
-          if (xobj.readyState == 4 && xobj.status == "200") {
-		      var actual_JSON = JSON.parse(xobj.responseText);
-		      console.log(actual_JSON);
+	  if (xobj.readyState == 4 && xobj.status == "200") {
+	      var actual_JSON = JSON.parse(xobj.responseText);
+	      console.log(actual_JSON);
         	}
     };
     xobj.send(null);  
