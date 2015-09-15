@@ -2,8 +2,9 @@
 //scroll infinitly
 window.onscroll= function(){
 	var i = 0;
-	if(document.body.scrollHeight - document.body.scrollTop < 1000) {
-
+	//if(document.body.scrollHeight - document.body.scrollTop < 1000) {
+	if(window.innerHeight - window.scrollY < 300) {
+	 
 		var newDiv = document.createElement('div');
 		newDiv.classList.add('content-box');
 		var newName = document.createElement('div');
