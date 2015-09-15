@@ -137,7 +137,7 @@ window.onscroll = function(){
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
     var pageName = '';
-    var i=1;
+    var i;
     for( i=1 ; i <= 5 ; i++){
     	pageName = 'page' + i + '.json';
     
@@ -145,12 +145,41 @@ window.onscroll = function(){
 	    xobj.open('GET', pageName, true); // Replace 'my_data' with the path to your file
 	    xobj.onreadystatechange = function () {
 		  if (xobj.readyState == 4 && xobj.status == "200") {
-		      var actual_JSON = JSON.parse(xobj.responseText);
-		      console.log(actual_JSON);
-	        	}
+		    var actual_JSON = JSON.parse(xobj.responseText));
+			fillContext(actual_JSON);
+		    console.log(actual_JSON);
+	      }
 	    };
 	    xobj.send(null);
 	}  
  }
  
+ function fillContext(jsonPage){
+ 	var out = "";
+ 	var i;
+ 	for(i=0; i<jsonPage.length;i++){
+ 		out = arr[i].name.first + arr[i].name.last;
+ 		document.querySelector("content-name").innerHTML = out;
+ 		console.log(out);
+ 		console.log(document.querySelector("content-name"));
+ 		out = arr[i].content;
+ 		document.querySelector("content-content").innerHTML = out;
+ 		console.log(out);
+ 		console.log(document.querySelector("content-content"));
+ 		out = arr[i].likeCount;
+ 		document.querySelector("like-count").innerHTML = out;
+ 		console.log(out);
+ 		//console.log(document.querySelector("content-name"));
+ 		out = arr[i].commentCount;
+ 		document.querySelector("comment-count").innerHTML = out;
+ 		console.log(out);
+ 		//console.log(document.querySelector("content-name"));
+ 		out = arr[i].shareCount;
+ 		document.querySelector("share-count").innerHTML = out;
+ 		console.log(out);
+ 		//console.log(document.querySelector("content-name"));
+ 		//if(arr[i].doesLike === true);
+ 	}
+ }
+
 
