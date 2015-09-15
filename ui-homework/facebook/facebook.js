@@ -136,11 +136,10 @@ window.onscroll = function(){
 	console.log("check");
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
-    var pageName = 'page';
+    var pageName = '';
     var i=1;
     for( i=1 ; i <= 5 ; i++){
-    	pageName += i;
-    	pageName += '.json'
+    	pageName = 'page' + i + '.json';
     
 	    console.log(pageName);
 	    xobj.open('GET', pageName, true); // Replace 'my_data' with the path to your file
