@@ -161,23 +161,23 @@ document.addEventListener("click", function(evt){
  		out = jsonPage[i].name.first + " " +jsonPage[i].name.last;
  		console.log(out);
  		console.log(typeof(out));
- 		document.querySelector("content-name").innerHTML = out;
+ 		document.querySelector(".content-name").innerHTML = out;
  		console.log(document.querySelector("content-name"));
  		out = jsonPage[i].content;
  		console.log(out);
- 		document.querySelector("content-content").innerHTML = out;
+ 		document.querySelector(".content-content").innerHTML = out;
  		//console.log(document.querySelector("content-content"));
  		out = jsonPage[i].likeCount;
  		console.log(out);
- 		document.querySelector("like-count").innerHTML = out;
+ 		document.querySelector(".like-count").innerHTML = out;
  		//console.log(document.querySelector("content-name"));
  		out = jsonPage[i].commentCount;
  		console.log(out);
- 		document.querySelector("comment-count").innerHTML = out;
+ 		document.querySelector(".comment-count").innerHTML = out;
  		//console.log(document.querySelector("content-name"));
  		out = jsonPage[i].shareCount;
  		console.log(out);
- 		document.querySelector("share-count").innerHTML = out;
+ 		document.querySelector(".share-count").innerHTML = out;
  		//console.log(document.querySelector("content-name"));
  		//if(jsonPage[i].doesLike === true);
  	}
