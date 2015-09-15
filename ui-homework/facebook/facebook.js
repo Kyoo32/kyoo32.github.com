@@ -72,7 +72,28 @@ window.onscroll= function(){
 			var wrapper = document.getElementById('content-wrapper');
 			wrapper.appendChild(newDiv);
 	}
-console.log(document.body.scrollHeight - document.body.scrollTop);	
+	console.log(document.body.scrollHeight - document.body.scrollTop);
+
+	//load five content-box from json
+	console.log("check");
+    var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+    var pageName = '';
+    var i;
+    for( i=1 ; i <= 5 ; i++){
+    	pageName = 'page' + i + '.json';
+    
+	    console.log(pageName);
+	    xobj.open('GET', pageName, true); // Replace 'my_data' with the path to your file
+	    xobj.onreadystatechange = function () {
+		  if (xobj.readyState == 4 && xobj.status == "200") {
+		    var actual_JSON = JSON.parse(xobj.responseText);
+			fillContext(actual_JSON);
+		    console.log(actual_JSON);
+	      }
+	    };
+	    xobj.send(null);
+	}  
 }
 
 
@@ -131,29 +152,8 @@ document.addEventListener("click", function(evt){
 
 });
 
-//load five content-box from json
-window.onscroll = function(){   
-	console.log("check");
-    var xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/json");
-    var pageName = '';
-    var i;
-    for( i=1 ; i <= 5 ; i++){
-    	pageName = 'page' + i + '.json';
-    
-	    console.log(pageName);
-	    xobj.open('GET', pageName, true); // Replace 'my_data' with the path to your file
-	    xobj.onreadystatechange = function () {
-		  if (xobj.readyState == 4 && xobj.status == "200") {
-		    var actual_JSON = JSON.parse(xobj.responseText));
-			fillContext(actual_JSON);
-		    console.log(actual_JSON);
-	      }
-	    };
-	    xobj.send(null);
-	}  
- }
- 
+
+
  function fillContext(jsonPage){
  	var out = "";
  	var i;
