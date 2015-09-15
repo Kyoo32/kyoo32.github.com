@@ -158,8 +158,9 @@ document.addEventListener("click", function(evt){
  	var out = "";
  	var i;
  	for(i=0; i<jsonPage.length;i++){
- 		out = jsonPage[i].name.first + jsonPage[i].name.last;
+ 		out = jsonPage[i].name.first + " " +jsonPage[i].name.last;
  		console.log(out);
+ 		console.log(typeof(out));
  		document.querySelector("content-name").innerHTML = out;
  		console.log(document.querySelector("content-name"));
  		out = jsonPage[i].content;
