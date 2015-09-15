@@ -158,27 +158,27 @@ document.addEventListener("click", function(evt){
  	var out = "";
  	var i;
  	for(i=0; i<jsonPage.length;i++){
- 		out = arr[i].name.first + arr[i].name.last;
+ 		out = jsonPage[i].name.first + jsonPage[i].name.last;
  		document.querySelector("content-name").innerHTML = out;
  		console.log(out);
  		console.log(document.querySelector("content-name"));
- 		out = arr[i].content;
+ 		out = jsonPage[i].content;
  		document.querySelector("content-content").innerHTML = out;
  		console.log(out);
  		console.log(document.querySelector("content-content"));
- 		out = arr[i].likeCount;
+ 		out = jsonPage[i].likeCount;
  		document.querySelector("like-count").innerHTML = out;
  		console.log(out);
  		//console.log(document.querySelector("content-name"));
- 		out = arr[i].commentCount;
+ 		out = jsonPage[i].commentCount;
  		document.querySelector("comment-count").innerHTML = out;
  		console.log(out);
  		//console.log(document.querySelector("content-name"));
- 		out = arr[i].shareCount;
+ 		out = jsonPage[i].shareCount;
  		document.querySelector("share-count").innerHTML = out;
  		console.log(out);
  		//console.log(document.querySelector("content-name"));
- 		//if(arr[i].doesLike === true);
+ 		//if(jsonPage[i].doesLike === true);
  	}
  }
 
