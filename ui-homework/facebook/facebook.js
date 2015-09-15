@@ -1,6 +1,7 @@
 
 //scroll infinitly
 window.onscroll= function(){
+	var i = 0;
 	if(document.body.scrollHeight - document.body.scrollTop < 1000) {
 
 		var newDiv = document.createElement('div');
@@ -71,29 +72,25 @@ window.onscroll= function(){
 		var wrapper = document.getElementById('content-wrapper');
 		wrapper.appendChild(newDiv);
 
-			//load five content-box from json
-		console.log("check");
-	    var xobj = new XMLHttpRequest();
-	        xobj.overrideMimeType("application/json");
-	    var pageName = '';
-	    var i;
-	    for( i=1 ; i <= 5 ; i++){
-	    	pageName = 'page' + i + '.json';
-	    
-		    console.log(pageName);
-		    xobj.open('GET', pageName, true); // Replace 'my_data' with the path to your file
-		    xobj.onreadystatechange = function () {
-				if (xobj.readyState == 4 && xobj.status == "200") {
-				    var actual_JSON = JSON.parse(xobj.responseText);
-					fillContext(actual_JSON);
-				    console.log(actual_JSON);
-			    }
-		    };
-		    xobj.send(null);
-		}  
+		i = (i%5) + 1;	
 	}
+	console.log("i :" + i + "and type: " +typeof(i));
 	console.log(document.body.scrollHeight - document.body.scrollTop);
-
+	//load five content-box from json
+	console.log("check");
+    var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+    var pageName = pageName = 'page' + i + '.json';
+    console.log(pageName);
+    xobj.open('GET', pageName, true); // Replace 'my_data' with the path to your file
+    xobj.onreadystatechange = function () {
+		if (xobj.readyState == 4 && xobj.status == "200") {
+		    var actual_JSON = JSON.parse(xobj.responseText);
+			fillContext(actual_JSON);
+		    console.log(actual_JSON);
+	    }
+    xobj.send(null);
+	}  
 	
 }
 
@@ -166,23 +163,15 @@ document.addEventListener("click", function(evt){
  	
  	for(i=0; i<jsonPage.length;i++){
  		out = jsonPage[i].name.first + " " +jsonPage[i].name.last;
- 		//console.log(out);
- 		//console.log(typeof(out));
  		names[i+2].innerHTML = out;
  		out = jsonPage[i].content;
- 		console.log(out);
  		contents[i+2].innerHTML = out;	
  		out = jsonPage[i].likeCount;
- 		//console.log(out);
  		likeCounts[i+2].innerHTML = out;
  		out = jsonPage[i].commentCount;
- 		//console.log(out);
  		commentCounts[i+2].innerHTML = out;
- 		//console.log(document.querySelector("content-name"));
  		out = jsonPage[i].shareCount;
- 		//console.log(out);
  		shareCounts[i+2].innerHTML = out;
- 		//console.log(document.querySelector("content-name"));
  		//if(jsonPage[i].doesLike === true);
  	}
  }
