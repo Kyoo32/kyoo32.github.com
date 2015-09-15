@@ -1,4 +1,4 @@
-[
+myFunction([
   {
     "registered": "Saturday, June 13, 2015 11:46 AM",
     "content": "Eu velit velit amet duis eiusmod laborum nisi qui in laborum ullamco anim consectetur. Ad labore labore adipisicing sint minim in dolor incididunt veniam et do amet. Irure sint ut laborum et enim veniam est nisi dolore ipsum. Nulla minim sit veniam sint aliquip labore enim fugiat est. Irure esse adipisicing voluptate ea.",
@@ -37,31 +37,5 @@
     "likeCount": 1,
     "doesLike": true,
     "_id": "55f7d3f4a6548271d818bbfb"
-  },
-  {
-    "registered": "Friday, February 27, 2015 8:05 PM",
-    "content": "Voluptate labore occaecat ipsum et ipsum. Amet cupidatat commodo laborum excepteur cillum exercitation consectetur eu et fugiat labore ad veniam nostrud. Dolor tempor exercitation eiusmod occaecat elit exercitation. Lorem fugiat velit labore anim proident amet. Ullamco esse Lorem cillum fugiat dolore irure do labore consequat laboris reprehenderit reprehenderit incididunt minim.",
-    "name": {
-      "last": "Rojas",
-      "first": "Krista"
-    },
-    "shareCount": 4,
-    "commentCount": 6,
-    "likeCount": 5,
-    "doesLike": true,
-    "_id": "55f7d3f43e64d6c0635b3f21"
-  },
-  {
-    "registered": "Tuesday, March 3, 2015 3:43 PM",
-    "content": "Amet dolor sit nulla excepteur id. Labore est velit culpa exercitation proident deserunt culpa sint Lorem irure. Est fugiat reprehenderit fugiat minim amet eiusmod elit labore dolor reprehenderit nisi. Incididunt deserunt minim in excepteur magna quis ad cillum adipisicing in. Esse mollit id nostrud consectetur aliqua consequat officia excepteur reprehenderit id aliquip. Aute eu pariatur laborum occaecat cillum irure irure ea cupidatat.",
-    "name": {
-      "last": "Gregory",
-      "first": "Gina"
-    },
-    "shareCount": 3,
-    "commentCount": 10,
-    "likeCount": 8,
-    "doesLike": false,
-    "_id": "55f7d3f41aa7ccfe777c8363"
   }
-]
+] );
