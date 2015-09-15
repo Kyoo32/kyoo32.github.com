@@ -157,27 +157,30 @@ document.addEventListener("click", function(evt){
  function fillContext(jsonPage){
  	var out = "";
  	var i;
+ 	var names = document.querySelectorAll(".content-name");
+ 	var contents = document.querySelectorAll(".content-content");
+ 	var likeCounts = document.querySelectorAll(".like-count");
+ 	var commentCounts = document.querySelectorAll(".comment-count");
+ 	var shareCounts = document.querySelectorAll(".share-count");
+ 	
  	for(i=0; i<jsonPage.length;i++){
  		out = jsonPage[i].name.first + " " +jsonPage[i].name.last;
- 		console.log(out);
- 		console.log(typeof(out));
- 		document.querySelector(".content-name").innerHTML = out;
- 		console.log(document.querySelector("content-name"));
+ 		//console.log(out);
+ 		//console.log(typeof(out));
+ 		names[i+2].innerHTML = out;
  		out = jsonPage[i].content;
  		console.log(out);
- 		document.querySelector(".content-content").innerHTML = out;
- 		//console.log(document.querySelector("content-content"));
+ 		contents[i+2].innerHTML = out;	
  		out = jsonPage[i].likeCount;
- 		console.log(out);
- 		document.querySelector(".like-count").innerHTML = out;
- 		//console.log(document.querySelector("content-name"));
+ 		//console.log(out);
+ 		likeCounts[i+2].innerHTML = out;
  		out = jsonPage[i].commentCount;
- 		console.log(out);
- 		document.querySelector(".comment-count").innerHTML = out;
+ 		//console.log(out);
+ 		commentCounts[i+2].innerHTML = out;
  		//console.log(document.querySelector("content-name"));
  		out = jsonPage[i].shareCount;
- 		console.log(out);
- 		document.querySelector(".share-count").innerHTML = out;
+ 		//console.log(out);
+ 		shareCounts[i+2].innerHTML = out;
  		//console.log(document.querySelector("content-name"));
  		//if(jsonPage[i].doesLike === true);
  	}
