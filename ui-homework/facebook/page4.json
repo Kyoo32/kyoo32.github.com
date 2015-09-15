@@ -1,4 +1,4 @@
-[
+myFunction([
   {
     "registered": "Saturday, June 13, 2015 11:46 AM",
     "content": "Eu velit velit amet duis eiusmod laborum nisi qui in laborum ullamco anim consectetur. Ad labore labore adipisicing sint minim in dolor incididunt veniam et do amet. Irure sint ut laborum et enim veniam est nisi dolore ipsum. Nulla minim sit veniam sint aliquip labore enim fugiat est. Irure esse adipisicing voluptate ea.",
@@ -38,4 +38,4 @@
     "doesLike": true,
     "_id": "55f7d3f4a6548271d818bbfb"
   }
-] 
+]);

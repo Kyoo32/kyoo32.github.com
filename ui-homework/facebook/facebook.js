@@ -132,8 +132,9 @@ document.addEventListener("click", function(evt){
 });
 
 //load five content-box from json
-function loadJSON(callback) {   
-
+/*
+document.body.onscroll = function loadJSON(callback) {   
+	console.log("check");
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
     xobj.open('GET', 'page1.json', true); // Replace 'my_data' with the path to your file
@@ -153,9 +154,11 @@ function init() {
     console.log(actual_JSON);
  });
 }
+*/
 
-/*
-myFunction(arr) {
+window.onscroll = myFunction;
+function myFunction(arr) {
+	console.log(arr);
     var out = "";
     var i;
     for(i = 0; i < arr.length; i++) {
@@ -184,4 +187,3 @@ myFunction(arr) {
 }
 
 
-*/
