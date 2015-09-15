@@ -1,10 +1,10 @@
 
 //scroll infinitly
 window.onscroll= function(){
-	var i = 0;
-	//if(document.body.scrollHeight - document.body.scrollTop < 1000) {
-	if(window.innerHeight - window.scrollY < 300) {
-	 
+	var i = -1;
+	if(document.body.scrollHeight - document.body.scrollTop < 1000) {
+	//if(window.innerHeight - window.scrollY < 300) {
+
 		var newDiv = document.createElement('div');
 		newDiv.classList.add('content-box');
 		var newName = document.createElement('div');
@@ -73,9 +73,13 @@ window.onscroll= function(){
 		var wrapper = document.getElementById('content-wrapper');
 		wrapper.appendChild(newDiv);
 
-		i = (i%5) + 1;	
+		i += 1;
 	}
 	console.log("i :" + i + "and type: " +typeof(i));
+	if(i>5){
+		console.log("No More Data");
+		return;
+	}
 	console.log(document.body.scrollHeight - document.body.scrollTop);
 	//load five content-box from json
 	console.log("check");
