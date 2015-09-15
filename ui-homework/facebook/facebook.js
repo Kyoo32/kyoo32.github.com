@@ -165,7 +165,7 @@ document.addEventListener("click", function(evt){
  		out = jsonPage[i].content;
  		console.log(out);
  		document.querySelector("content-content").innerHTML = out;
- 		console.log(document.querySelector("content-content"));
+ 		//console.log(document.querySelector("content-content"));
  		out = jsonPage[i].likeCount;
  		console.log(out);
  		document.querySelector("like-count").innerHTML = out;
