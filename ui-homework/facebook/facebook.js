@@ -139,18 +139,19 @@ window.onscroll = function(){
     var pageName = 'page';
     var i=1;
     for( i=1 ; i <= 5 ; i++){
-    	pageName += 'i';
+    	pageName += i;
     	pageName += '.json'
-    }
-    console.log(pageName);
-    xobj.open('GET', pageName, true); // Replace 'my_data' with the path to your file
-    xobj.onreadystatechange = function () {
-	  if (xobj.readyState == 4 && xobj.status == "200") {
-	      var actual_JSON = JSON.parse(xobj.responseText);
-	      console.log(actual_JSON);
-        	}
-    };
-    xobj.send(null);  
+    
+	    console.log(pageName);
+	    xobj.open('GET', pageName, true); // Replace 'my_data' with the path to your file
+	    xobj.onreadystatechange = function () {
+		  if (xobj.readyState == 4 && xobj.status == "200") {
+		      var actual_JSON = JSON.parse(xobj.responseText);
+		      console.log(actual_JSON);
+	        	}
+	    };
+	    xobj.send(null);
+	}  
  }
  
 
