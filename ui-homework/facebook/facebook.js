@@ -137,7 +137,8 @@ window.onscroll = function(){
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
     var pageName = 'page';
-    for(int i=1 ; i <= 5 ; i++){
+    var i=1;
+    for( i=1 ; i <= 5 ; i++){
     	pageName += 'i';
     	pageName += '.json'
     }
