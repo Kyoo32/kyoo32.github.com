@@ -141,41 +141,10 @@ window.onscroll = function(){
     xobj.onreadystatechange = function () {
           if (xobj.readyState == 4 && xobj.status == "200") {
 		      var actual_JSON = JSON.parse(xobj.responseText);
-		      console.log("actual_JSON");
+		      console.log(actual_JSON);
         	}
     };
     xobj.send(null);  
  }
  
 
-/*
-function myFunction(arr) {
-	console.log(arr);
-    var out = "";
-    var i;
-    for(i = 0; i < arr.length; i++) {
-        out = arr[i].name.first + arr[i].name.last;
-		document.querySelector("content-name").innerHTML = out;
-		console.log(out);
-		console.log(document.querySelector("content-name"));
-		out = arr[i].content;
-		document.querySelector("content-content").innerHTML = out;
-		console.log(out);
-		console.log(document.querySelector("content-content"));
-		out = arr[i].likeCount;
-		document.querySelector("like-count").innerHTML = out;
-		console.log(out);
-		//console.log(document.querySelector("content-name"));
-		out = arr[i].commentCount;
-		document.querySelector("comment-count").innerHTML = out;
-		console.log(out);
-		//console.log(document.querySelector("content-name"));
-		out = arr[i].shareCount;
-		document.querySelector("share-count").innerHTML = out;
-		console.log(out);
-		//console.log(document.querySelector("content-name"));
-		//if(arr[i].doesLike === true);
-    }
-}
-
-*/
