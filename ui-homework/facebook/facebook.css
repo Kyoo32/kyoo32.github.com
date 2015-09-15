@@ -6,7 +6,10 @@ body {
 
 
 }
-
+/* 
+This document loughly consists of header ,main ,and footer.
+Main can also dividd into left-sidebar, main-content-section, and right-sidebar.
+*/
 
 header#global-header {
 	position: fixed;
@@ -17,12 +20,14 @@ header#global-header {
 	background-color: #2B649B;
 	z-index: 100;
 }
+
 main {
 	position: relative;
 	margin-top: 42px;
 
 }
 
+/*start left-sidebar*/
 section#left-sidebar {
 	position:relative;
 	float: left;
@@ -103,8 +108,10 @@ div.leftside-row-more-info{
 	height: 20px;
 
 	line-height:20px;
-
 }
+/*end left-sidebar*/
+
+/*start main*/
 section#content-wrapper{
 	position: relative;
 
@@ -161,6 +168,10 @@ div.content-box div.content-button{
 
 	border-top: 3px solid grey;
 }
+.content-button img {
+	width: 20px;
+	height: 20px;
+}
 /*
 div.content-box:first-child{
 	height: 200px;
@@ -176,6 +187,10 @@ div.content-box:first-child{
 	*/
 }
 
+/*end main*/
+
+
+/*start right-sidebar*/
 section#right-sidebar{
 	position: relative;
 	
@@ -197,4 +212,4 @@ div#right-sidebar-box{
 	background-color: white;
 
 }
-
+/*end right-sidebar*/

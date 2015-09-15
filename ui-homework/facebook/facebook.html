@@ -11,6 +11,7 @@
 	<!-- /header -->
 	<!-- main -->
 	<main>
+		<!-- left-sidebar -->
 		<section id="left-sidebar">
 			<div id="profile">
 				<div class="icon"><img src="taegon.png" style="width: 18px; height:18px;"> </div>김태곤
@@ -30,6 +31,8 @@
 				<div class="leftside-row-more-info">3</div>
 			</div>
 		</section>
+		<!-- /left-sidebar -->
+		<!-- content section -->
 		<section id="content-wrapper">
 			<div class="content-box">
 				<div class="content-name"> <img class="profile-image" src="taegon.png"> JB </div>
@@ -40,9 +43,9 @@
 			 		공유 <span class="share-count">4</span>개
 			 	</div>
 			 	<div class="content-button">
-			 		<img src="like.png"><span class="like-button">좋아요</span>
-			 		<img src="comment.png"><span class="comment-button">댓글달기</span>
-			 		<img src="share.png"><span class="share-button">공유하기</span>
+			 		<img src="thumbs-up.svg"><span class="like-button">좋아요</span>
+			 		<img src="comment.svg"><span class="comment-button">댓글달기</span>
+			 		<img src="mail-forward.svg"><span class="share-button">공유하기</span>
 			 	</div>
 			</div>
 			<div class="content-box">
@@ -50,92 +53,104 @@
 			 	<div class="content-content">반가워요</div> 
 			 	<div class="button-count">
 			 		좋아요 <span class="like-count">0</span>개
-			 		댓글 <span class="commnet-count">0</span>개
+			 		댓글 <span class="comment-count">0</span>개
 			 		공유 <span class="share-count">0</span>개
 			 	</div>
 			 	<div class="content-button">
-			 		<img src="like.png"><span class="like-button">좋아요</span>
-			 		<img src="comment.png"><span class="comment-button">댓글달기</span>
-			 		<img src="share.png"><span class="share-button">공유하기</span>
+			 		<img src="thumbs-up.svg"><span class="like-button">좋아요</span>
+			 		<img src="comment.svg"><span class="comment-button">댓글달기</span>
+			 		<img src="mail-forward.svg"><span class="share-button">공유하기</span>
 			 	</div>
 			</div>
 		</section>
+		<!-- /content section -->
+		<!-- right-sidebar -->
 		<section id="right-sidebar">
 			<div id="right-sidebar-box"></div>
 		</section>
+		<!-- /right-sidebar -->
 	</main>
 	<!-- /main -->
 	<script>
-			window.onscroll= function(){
-				if(document.body.scrollHeight - document.body.scrollTop < 1000) {
+		//scroll infinitly
+		window.onscroll= function(){
+			if(document.body.scrollHeight - document.body.scrollTop < 1000) {
 
-						var newDiv = document.createElement('div');
-						newDiv.classList.add('content-box');
-						var newName = document.createElement('div');
-						newName.classList.add('content-name');
-						var newContent = document.createElement('div');
-						newContent.classList.add('content-content');
-						var newButton = document.createElement('div');
-						newButton.classList.add('content-button');
-						newDiv.appendChild(newName);
-						newDiv.appendChild(newContent);
-						newDiv.appendChild(newButton);
+					var newDiv = document.createElement('div');
+					newDiv.classList.add('content-box');
+					var newName = document.createElement('div');
+					newName.classList.add('content-name');
+					var newContent = document.createElement('div');
+					newContent.classList.add('content-content');
+					var newButton = document.createElement('div');
+					newButton.classList.add('content-button');
+					newDiv.appendChild(newName);
+					newDiv.appendChild(newContent);
+					newDiv.appendChild(newButton);
 
 
 
-						var wrapper = document.getElementById('content-wrapper');
-						wrapper.appendChild(newDiv);
+					var wrapper = document.getElementById('content-wrapper');
+					wrapper.appendChild(newDiv);
+			}
+		console.log(document.body.scrollHeight - document.body.scrollTop);	
+		}
+
+
+		//click button and delegate event to count text and icon style
+		document.addEventListener("click", function(evt){
+			var target = evt.target;
+				tagName = target.tagName;
+
+			if(tagName==="SPAN"){
+				if(target.style.color === ""){
+					target.style.color = "blue";
+
 				}
-			console.log(document.body.scrollHeight - document.body.scrollTop);	
+				else if(target.style.color === "blue"){
+					target.style.color = "";
+				}
 			}
 
-			document.addEventListener("click", function(evt){
-				var target = evt.target;
-					tagName = target.tagName;
+			if(target.className === "like-button"){
+				var count = target.parentNode.parentNode.querySelector(".like-count");
+				var savedCount = parseInt(count.innerHTML);
+				var targetImg = target.parentNode.parentNode.querySelector(".content-button img:first-child");	
 
-				if(tagName==="SPAN"){
-					if(target.style.color === ""){
-						target.style.color = "blue";
-
-					}
-					else if(target.style.color === "blue"){
-						target.style.color = "";
-					}
+				console.log(targetImg);
+				if(target.style.color ===""){
+					savedCount -= 1;
+					targetImg.style.fill = "";
 				}
+				else if(target.style.color ==="blue"){
+					savedCount +=1;
+					targetImg.style.fill = "blue";
+				}	
+				count.innerHTML = savedCount.toString();	
 
-				if(target.className === "like-button"){
-					var count = target.parentNode.parentNode.querySelector(".like-count");
-					var savedCount = parseInt(count.innerHTML);
-					if(target.style.color ===""){
-						savedCount -= 1;
-					}
-					else if(target.style.color ==="blue"){
-						savedCount +=1;
-					}	
-					count.innerHTML = savedCount.toString();
-				}else if(target.className === "comment-button"){
-					var count = target.parentNode.parentNode.querySelector(".comment-count");
-					var savedCount = parseInt(count.innerHTML);
-					if(target.style.color ===""){
-						savedCount -= 1;
-					}
-					else if(target.style.color ==="blue"){
-						savedCount +=1;
-					}	
-					count.innerHTML = savedCount.toString();
-				}else if(target.className === "share-button"){
-					var count = target.parentNode.parentNode.querySelector(".share-count");
-					var savedCount = parseInt(count.innerHTML);
-					if(target.style.color ===""){
-						savedCount -= 1;
-					}
-					else if(target.style.color ==="blue"){
-						savedCount +=1;
-					}	
-					count.innerHTML = savedCount.toString();
+			} else if(target.className === "comment-button"){
+				var count = target.parentNode.parentNode.querySelector(".comment-count");
+				var savedCount = parseInt(count.innerHTML);
+				if(target.style.color === ""){
+					savedCount -= 1;
 				}
+				else if(target.style.color ==="blue"){
+					savedCount += 1;
+				}	
+				count.innerHTML = savedCount.toString();
+			} else if(target.className === "share-button"){
+				var count = target.parentNode.parentNode.querySelector(".share-count");
+				var savedCount = parseInt(count.innerHTML);
+				if(target.style.color ===""){
+					savedCount -= 1;
+				}
+				else if(target.style.color ==="blue"){
+					savedCount +=1;
+				}	
+				count.innerHTML = savedCount.toString();
+			}
 
-			});
+		});
 	</script>
 </body>
 </html>
