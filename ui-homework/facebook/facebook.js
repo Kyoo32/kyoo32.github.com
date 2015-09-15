@@ -137,10 +137,10 @@ window.onscroll = function(){
 	console.log("check");
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'page1.json', true); // Replace 'my_data' with the path to your file
+    	xobj.open('GET', 'page1.json', true); // Replace 'my_data' with the path to your file
     xobj.onreadystatechange = function () {
           if (xobj.readyState == 4 && xobj.status == "200") {
-		      var actual_JSON = JSON.parse(response);
+		      var actual_JSON = JSON.parse(xobj.responseText);
 		      console.log("actual_JSON");
         	}
     };
