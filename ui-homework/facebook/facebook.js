@@ -82,13 +82,13 @@ function scrollInfinitly(){
 		wrapper.appendChild(newDiv);
 
 		i += 1;
-		loadJson(i);
+		loadJson();
 	}
 	
 }
 
 //load Json like ajax
-function loadJson(i){
+function loadJson(){
 
 	if(window.innerHeight - window.scrollY < 300) {
 		console.log(window.innerHeight - window.scrollY);
