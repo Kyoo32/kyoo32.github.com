@@ -64,7 +64,7 @@ function addContentBox(){
 	newButton.classList.add('content-button');
 
 	var likeImg = document.createElement('img');
-	likeImg.src="thumbs-up.svg";
+	likeImg.src="like-silver.png";
 	var newLikeB = document.createElement('span');
 	newLikeB.classList.add("like-button");
 	newLikeB.textContent = '좋아요 ';
@@ -72,7 +72,7 @@ function addContentBox(){
 	newButton.appendChild(newLikeB);
 
 	var commentImg = document.createElement('img');
-	commentImg.src="comment.svg";
+	commentImg.src="comment-silver.png";
 	var newCommentB = document.createElement('span');
 	newCommentB.classList.add("comment-button");
 	newCommentB.textContent = '댓글달기 ';
@@ -80,7 +80,7 @@ function addContentBox(){
 	newButton.appendChild(newCommentB);
 
 	var shareImg = document.createElement('img');
-	shareImg.src="mail-forward.svg";
+	shareImg.src="share-silver.png";
 	var newShareB = document.createElement('span');
 	newShareB.classList.add("share-button");
 	newShareB.textContent = '공유하기 ';
@@ -170,7 +170,8 @@ function clickButton(evt){
 		}	
 		count.innerHTML = savedCount.toString();	
 
-	} else if(target.className === "comment-button"){
+	} 
+	if(target.className === "comment-button"){
 		var count = target.parentNode.parentNode.querySelector(".comment-count");
 		var savedCount = parseInt(count.innerHTML);
 		var targetImg = target.parentNode.parentNode.querySelector(".content-button img:nth-of-child(2)");	
@@ -183,7 +184,8 @@ function clickButton(evt){
 			targetImg.src = "comment-blue.png";
 		}	
 		count.innerHTML = savedCount.toString();
-	} else if(target.className === "share-button"){
+	} 
+	if(target.className === "share-button"){
 		var count = target.parentNode.parentNode.querySelector(".share-count");
 		var savedCount = parseInt(count.innerHTML);
 		var targetImg = target.parentNode.parentNode.querySelector(".content-button img:nth-of-child(3)");	
