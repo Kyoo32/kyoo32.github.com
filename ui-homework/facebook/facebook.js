@@ -11,11 +11,14 @@ function init(){
 function eventByScrollPoint(){
 	var ScrollPoint = calScrollPoint();
 	console.log(ScrollPoint);
-	if(ScrollPoint > 0.2){
+	if(ScrollPoint > 0.2 && i<=5){
 		addContentBox();
 		addContentBox();
 		addContentBox();
 		loadJson();
+	}
+	else if(i>5){
+		return;
 	}
 }
 
@@ -232,6 +235,7 @@ function focusContent(e){
 		}
 	}
 	target[c].classList.add('onFocus');
+	window.scrollTo(target[c].left, target[c].top);
 }
 
 
