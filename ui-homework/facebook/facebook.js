@@ -157,12 +157,12 @@ function clickButton(evt){
 	if(target.className === "like-button"){
 		var count = target.parentNode.parentNode.querySelector(".like-count");
 		var savedCount = parseInt(count.innerHTML);
-		var targetImg = target.parentNode.parentNode.querySelector(".content-button img:first-child");	
+		var targetImg = target.parentNode.parentNode.querySelector(".content-button img:nth-of-child(1)");	
 
 		console.log(targetImg);
 		if(target.style.color ===""){
 			savedCount -= 1;
-			targetImg.src = "";
+			targetImg.src = "like-silver.png";
 		}
 		else if(target.style.color ==="blue"){
 			savedCount +=1;
@@ -173,9 +173,10 @@ function clickButton(evt){
 	} else if(target.className === "comment-button"){
 		var count = target.parentNode.parentNode.querySelector(".comment-count");
 		var savedCount = parseInt(count.innerHTML);
+		var targetImg = target.parentNode.parentNode.querySelector(".content-button img:nth-of-child(2)");	
 		if(target.style.color === ""){
 			savedCount -= 1;
-			targetImg.src = "";
+			targetImg.src = "comment-silver.png";
 		}
 		else if(target.style.color ==="blue"){
 			savedCount += 1;
@@ -185,9 +186,10 @@ function clickButton(evt){
 	} else if(target.className === "share-button"){
 		var count = target.parentNode.parentNode.querySelector(".share-count");
 		var savedCount = parseInt(count.innerHTML);
+		var targetImg = target.parentNode.parentNode.querySelector(".content-button img:nth-of-child(3)");	
 		if(target.style.color ===""){
 			savedCount -= 1;
-			targetImg.src = "";
+			targetImg.src = "share-silver.png";
 		}
 		else if(target.style.color ==="blue"){
 			savedCount +=1;
