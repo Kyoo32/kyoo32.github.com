@@ -1,4 +1,5 @@
 var i = -1;
+var c = 0;
 
 function init(){
 	window.onscroll = scrollInfinitly;
@@ -198,16 +199,15 @@ function focusContent(e){
 	
 	var target = document.querySelectorAll('.content-box');
 	console.log(target);
-	var i = 0;
-	if(e.keyCode == 74){ //j key	
-		i += 1;
-	}
-	if(e.keyCode == 75){ //k key
-		if(i != 0){
-			i -= 1;
+	target[c].classList.remove('onFocus');	
+	if(e.keyCode == 74){ //j key
+		c += 1;
+	} else if(e.keyCode == 75){ //k key
+		if(c != 0){
+			c -= 1;
 		}
 	}
-	target[i].classList.add('onFocus');
+	target[c].classList.add('onFocus');
 }
 
 
