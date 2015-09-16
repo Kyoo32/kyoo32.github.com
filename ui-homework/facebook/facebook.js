@@ -11,15 +11,16 @@ function init(){
 function eventByScrollPoint(){
 	var ScrollPoint = calScrollPoint();
 	console.log(ScrollPoint);
-	if(ScrollPoint > 0.4){
+	if(ScrollPoint > 0.2){
+		addContentBox();
+		addContentBox();
+		addContentBox();
 		loadJson();
-	}else if(ScrollPoint > 0.2){
-		scrollInfinitly();
 	}
 }
 
 //scroll infinitly
-function scrollInfinitly(){	
+function addContentBox(){	
 	//if(document.body.scrollHeight - document.body.scrollTop < 1000) {
 	//if(window.innerHeight - window.scrollY < 300) {
 	
