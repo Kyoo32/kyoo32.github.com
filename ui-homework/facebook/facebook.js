@@ -11,8 +11,10 @@ function init(){
 //scroll infinitly
 function scrollInfinitly(){	
 	//if(document.body.scrollHeight - document.body.scrollTop < 1000) {
-	if(window.innerHeight - window.scrollY < 300) {
-	console.log(window.innerHeight - window.scrollY);
+	//if(window.innerHeight - window.scrollY < 300) {
+	var ScrollPoint = calScrollPoint();
+	console.log(ScrollPoint);
+	if(ScrollPoint < 0.6){
 		var newDiv = document.createElement('div');
 		newDiv.classList.add('content-box');
 		var newName = document.createElement('div');
@@ -80,18 +82,26 @@ function scrollInfinitly(){
 		
 		var wrapper = document.getElementById('content-wrapper');
 		wrapper.appendChild(newDiv);
+	}	
+}
 
-		i += 1;
-		loadJson();
-	}
-	
+function calScrollPoint(){
+	var top = document.body.scrollTop;
+	var clientH = document.body.clientHeight;
+	var scrollH = document.body.scrollHeight;
+
+	var result = top / (scrollH - clientH);
+	return result;
+
 }
 
 //load Json like ajax
 function loadJson(){
 
-	if(window.innerHeight - window.scrollY < 300) {
-		console.log(window.innerHeight - window.scrollY);
+	//if(window.innerHeight - window.scrollY < 300) {
+	var ScrollPoint = calScrollPoint();
+	console.log(ScrollPoint);
+	if(ScrollPoint < 0.6){
 		i += 1;
 		console.log("i :" + i + "and type: " +typeof(i));
 		if(i>5){
