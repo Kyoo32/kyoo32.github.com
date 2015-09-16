@@ -162,11 +162,11 @@ function clickButton(evt){
 		console.log(targetImg);
 		if(target.style.color ===""){
 			savedCount -= 1;
-			targetImg.style.fill = "";
+			targetImg.src = "";
 		}
 		else if(target.style.color ==="blue"){
 			savedCount +=1;
-			targetImg.style.fill = "blue";
+			targetImg.src = "like-blue";
 		}	
 		count.innerHTML = savedCount.toString();	
 
@@ -175,9 +175,11 @@ function clickButton(evt){
 		var savedCount = parseInt(count.innerHTML);
 		if(target.style.color === ""){
 			savedCount -= 1;
+			targetImg.src = "";
 		}
 		else if(target.style.color ==="blue"){
 			savedCount += 1;
+			targetImg.src = "comment-blue";
 		}	
 		count.innerHTML = savedCount.toString();
 	} else if(target.className === "share-button"){
@@ -185,9 +187,11 @@ function clickButton(evt){
 		var savedCount = parseInt(count.innerHTML);
 		if(target.style.color ===""){
 			savedCount -= 1;
+			targetImg.src = "";
 		}
 		else if(target.style.color ==="blue"){
 			savedCount +=1;
+			targetImg.src ="share-blue"
 		}	
 		count.innerHTML = savedCount.toString();
 	}
