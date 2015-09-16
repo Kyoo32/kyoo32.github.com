@@ -1,7 +1,13 @@
+var i = -1;
+
+function init(){
+	window.onscroll = scrollInfinitly;
+	document.addEventListener("click", clickButton);
+	document.addEventListener("keyup", focusContent);
+}
 
 //scroll infinitly
-window.onscroll= function(){
-	var i = -1;
+function scrollInfinitly(){	
 	//if(document.body.scrollHeight - document.body.scrollTop < 1000) {
 	if(window.innerHeight - window.scrollY < 300) {
 
@@ -74,7 +80,13 @@ window.onscroll= function(){
 		wrapper.appendChild(newDiv);
 
 		i += 1;
+		loadJson(i);
 	}
+	
+}
+
+//load Json like ajax
+function loadJson(i){
 	console.log("i :" + i + "and type: " +typeof(i));
 	if(i>5){
 		console.log("No More Data");
@@ -100,9 +112,8 @@ window.onscroll= function(){
 	
 }
 
-
 //click button and delegate event to count text and icon style
-document.addEventListener("click", function(evt){
+function clickButton(evt){
 	var target = evt.target;
 		tagName = target.tagName;
 
@@ -154,32 +165,50 @@ document.addEventListener("click", function(evt){
 		count.innerHTML = savedCount.toString();
 	}
 
-});
+}
+
+//fill the content with the json page
+function fillContext(jsonPage){
+
+	var out = "";
+	var i;
+	var names = document.querySelectorAll(".content-name");
+	var contents = document.querySelectorAll(".content-content");
+	var likeCounts = document.querySelectorAll(".like-count");
+	var commentCounts = document.querySelectorAll(".comment-count");
+	var shareCounts = document.querySelectorAll(".share-count");
+	
+	for(i=0; i<jsonPage.length;i++){
+		out = jsonPage[i].name.first + " " +jsonPage[i].name.last;
+		names[i+2].innerHTML = out;
+		out = jsonPage[i].content;
+		contents[i+2].innerHTML = out;	
+		out = jsonPage[i].likeCount;
+		likeCounts[i+2].innerHTML = out;
+		out = jsonPage[i].commentCount;
+		commentCounts[i+2].innerHTML = out;
+		out = jsonPage[i].shareCount;
+		shareCounts[i+2].innerHTML = out;
+		//if(jsonPage[i].doesLike === true);
+	}
+}
+
+//foucus Content with key
+function focusContent(e){
+	
+	var target = document.querySelectorAll('.content-box');
+	console.log(target);
+	var i = 0;
+	if(e.keyCode == 74){ //j key	
+		i += 1;
+	}
+	if(e.keyCode == 75){ //k key
+		if(i != 0){
+			i -= 1;
+		}
+	}
+	target[i].classList.add('.onFocus');
+}
 
 
-
- function fillContext(jsonPage){
- 	var out = "";
- 	var i;
- 	var names = document.querySelectorAll(".content-name");
- 	var contents = document.querySelectorAll(".content-content");
- 	var likeCounts = document.querySelectorAll(".like-count");
- 	var commentCounts = document.querySelectorAll(".comment-count");
- 	var shareCounts = document.querySelectorAll(".share-count");
- 	
- 	for(i=0; i<jsonPage.length;i++){
- 		out = jsonPage[i].name.first + " " +jsonPage[i].name.last;
- 		names[i+2].innerHTML = out;
- 		out = jsonPage[i].content;
- 		contents[i+2].innerHTML = out;	
- 		out = jsonPage[i].likeCount;
- 		likeCounts[i+2].innerHTML = out;
- 		out = jsonPage[i].commentCount;
- 		commentCounts[i+2].innerHTML = out;
- 		out = jsonPage[i].shareCount;
- 		shareCounts[i+2].innerHTML = out;
- 		//if(jsonPage[i].doesLike === true);
- 	}
- }
-
-
+init();

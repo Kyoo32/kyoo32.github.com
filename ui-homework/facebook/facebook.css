@@ -186,6 +186,9 @@ div.content-box:first-child{
 	facebook chatroom
 	*/
 }
+div .onFocus{
+	border: 2px solid blue;
+}
 
 /*end main*/
 
