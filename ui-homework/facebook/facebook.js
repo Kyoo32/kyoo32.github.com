@@ -207,7 +207,7 @@ function focusContent(e){
 			i -= 1;
 		}
 	}
-	target[i].classList.add('.onFocus');
+	target[i].classList.add('onFocus');
 }
 
 
