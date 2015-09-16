@@ -11,7 +11,7 @@ function init(){
 function eventByScrollPoint(){
 	var ScrollPoint = calScrollPoint();
 	console.log(ScrollPoint);
-	if(ScrollPoint < 0.4){
+	if(ScrollPoint > 0.4){
 		scrollInfinitly();
 		loadJson();
 	}
