@@ -155,9 +155,10 @@ function clickButton(evt){
 	}
 
 	if(target.className === "like-button"){
+		console.log("in like");
 		var count = target.parentNode.parentNode.querySelector(".like-count");
 		var savedCount = parseInt(count.innerHTML);
-		var targetImg = target.parentNode.parentNode.querySelector(".content-button img:nth-of-child(1)");	
+		var targetImg = target.parentNode.parentNode.querySelector(".content-button img:nth-of-type(1)");	
 
 		console.log(targetImg);
 		if(target.style.color ===""){
@@ -170,11 +171,10 @@ function clickButton(evt){
 		}	
 		count.innerHTML = savedCount.toString();	
 
-	} 
-	if(target.className === "comment-button"){
+	} else if(target.className === "comment-button"){
 		var count = target.parentNode.parentNode.querySelector(".comment-count");
 		var savedCount = parseInt(count.innerHTML);
-		var targetImg = target.parentNode.parentNode.querySelector(".content-button img:nth-of-child(2)");	
+		var targetImg = target.parentNode.parentNode.querySelector(".content-button img:nth-of-type(2)");	
 		if(target.style.color === ""){
 			savedCount -= 1;
 			targetImg.src = "comment-silver.png";
@@ -184,11 +184,10 @@ function clickButton(evt){
 			targetImg.src = "comment-blue.png";
 		}	
 		count.innerHTML = savedCount.toString();
-	} 
-	if(target.className === "share-button"){
+	} else if(target.className === "share-button"){
 		var count = target.parentNode.parentNode.querySelector(".share-count");
 		var savedCount = parseInt(count.innerHTML);
-		var targetImg = target.parentNode.parentNode.querySelector(".content-button img:nth-of-child(3)");	
+		var targetImg = target.parentNode.parentNode.querySelector(".content-button img:nth-of-type(3)");	
 		if(target.style.color ===""){
 			savedCount -= 1;
 			targetImg.src = "share-silver.png";
