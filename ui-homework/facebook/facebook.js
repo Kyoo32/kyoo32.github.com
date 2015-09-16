@@ -1,8 +1,9 @@
-var i = -1;
+var i = 0;
 var c = 0;
 
 function init(){
 	window.onscroll = scrollInfinitly;
+	window.onscroll = loadJson;
 	document.addEventListener("click", clickButton);
 	document.addEventListener("keyup", focusContent);
 }
@@ -11,7 +12,7 @@ function init(){
 function scrollInfinitly(){	
 	//if(document.body.scrollHeight - document.body.scrollTop < 1000) {
 	if(window.innerHeight - window.scrollY < 300) {
-
+	console.log(window.innerHeight - window.scrollY);
 		var newDiv = document.createElement('div');
 		newDiv.classList.add('content-box');
 		var newName = document.createElement('div');
@@ -88,29 +89,34 @@ function scrollInfinitly(){
 
 //load Json like ajax
 function loadJson(i){
-	console.log("i :" + i + "and type: " +typeof(i));
-	if(i>5){
-		console.log("No More Data");
-		return;
+
+	if(window.innerHeight - window.scrollY < 300) {
+		console.log(window.innerHeight - window.scrollY);
+		i += 1;
+		console.log("i :" + i + "and type: " +typeof(i));
+		if(i>5){
+			console.log("No More Data");
+			return;
+		}
+		
+		//console.log(document.body.scrollHeight - document.body.scrollTop);
+		//load five content-box from json
+		console.log("check");
+	    var xobj = new XMLHttpRequest();
+	        xobj.overrideMimeType("application/json");
+	    var pageName = pageName = 'page' + i + '.json';
+	    console.log(pageName);
+	    xobj.open('GET', pageName, true); // Replace 'my_data' with the path to your file
+	    xobj.onreadystatechange = function () {
+			if (xobj.readyState == 4 && xobj.status == "200") {
+			    var actual_JSON = JSON.parse(xobj.responseText);
+			    console.log(actual_JSON);
+				fillContext(actual_JSON);
+			    console.log(actual_JSON);
+		    }
+	    xobj.send(null);
+		}  
 	}
-	console.log(window.innerHeight - window.scrollY);
-	//console.log(document.body.scrollHeight - document.body.scrollTop);
-	//load five content-box from json
-	console.log("check");
-    var xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/json");
-    var pageName = pageName = 'page' + i + '.json';
-    console.log(pageName);
-    xobj.open('GET', pageName, true); // Replace 'my_data' with the path to your file
-    xobj.onreadystatechange = function () {
-		if (xobj.readyState == 4 && xobj.status == "200") {
-		    var actual_JSON = JSON.parse(xobj.responseText);
-			fillContext(actual_JSON);
-		    console.log(actual_JSON);
-	    }
-    xobj.send(null);
-	}  
-	
 }
 
 //click button and delegate event to count text and icon style
@@ -179,6 +185,7 @@ function fillContext(jsonPage){
 	var commentCounts = document.querySelectorAll(".comment-count");
 	var shareCounts = document.querySelectorAll(".share-count");
 	
+	console.log(names);
 	for(i=0; i<jsonPage.length;i++){
 		out = jsonPage[i].name.first + " " +jsonPage[i].name.last;
 		names[i+2].innerHTML = out;
