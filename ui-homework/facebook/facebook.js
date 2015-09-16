@@ -166,7 +166,7 @@ function clickButton(evt){
 		}
 		else if(target.style.color ==="blue"){
 			savedCount +=1;
-			targetImg.src = "like-blue";
+			targetImg.src = "like-blue.png";
 		}	
 		count.innerHTML = savedCount.toString();	
 
@@ -179,7 +179,7 @@ function clickButton(evt){
 		}
 		else if(target.style.color ==="blue"){
 			savedCount += 1;
-			targetImg.src = "comment-blue";
+			targetImg.src = "comment-blue.png";
 		}	
 		count.innerHTML = savedCount.toString();
 	} else if(target.className === "share-button"){
@@ -191,7 +191,7 @@ function clickButton(evt){
 		}
 		else if(target.style.color ==="blue"){
 			savedCount +=1;
-			targetImg.src ="share-blue"
+			targetImg.src ="share-blue.png"
 		}	
 		count.innerHTML = savedCount.toString();
 	}
