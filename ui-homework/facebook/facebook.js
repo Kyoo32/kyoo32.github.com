@@ -104,6 +104,7 @@ function calScrollPoint(){
 
 //load Json like ajax
 function loadJson(){
+	window.onscroll = null;
 
 	//if(window.innerHeight - window.scrollY < 300) {
 	i += 1;
@@ -126,10 +127,11 @@ function loadJson(){
 		    var actual_JSON = JSON.parse(xobj.responseText);
 		    console.log(actual_JSON);
 			fillContext(actual_JSON);
-		    console.log(actual_JSON);
+		    window.onscroll = eventByScrollPoint;
 	    }
-    xobj.send(null);
 	}  
+	xobj.send(null);
+
 }
 
 //click button and delegate event to count text and icon style
