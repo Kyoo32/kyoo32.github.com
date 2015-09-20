@@ -98,12 +98,27 @@ function addContentBox(){
 }
 
 function calScrollPoint(){
+	/*
 	var top = document.body.scrollTop;
 	var clientH = document.body.clientHeight;
 	var scrollH = document.body.scrollHeight;
 
 	var result = top / (scrollH - clientH);
 	return result;
+	*/
+  var scrOfY = 0;
+  if( typeof( window.pageYOffset ) == 'number' ) {
+    //Netscape compliant
+    scrOfY = window.pageYOffset;
+  } else if( document.body &&  document.body.scrollTop ) {
+    //DOM compliant
+    scrOfY = document.body.scrollTop;
+  } else if( document.documentElement && document.documentElement.scrollTop ) {
+    //IE6 standards compliant mode
+    scrOfY = document.documentElement.scrollTop;
+  }
+  return scrOfY;
+}
 
 }
 
