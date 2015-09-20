@@ -120,7 +120,7 @@ function calScrollPoint(){
   return scrOfY;
 }
 
-}
+
 
 //load Json like ajax
 function loadJson(){
