@@ -91,6 +91,7 @@ function fillContext(contentDiv, contentset){
 	out = "<br> <span class='name'>" + contentset.username +
 			"</span><br>" + contentset.content;
 	content.innerHTML = out;
+	content.id = contentset.id;
 
 	
 }
@@ -98,23 +99,31 @@ function fillContext(contentDiv, contentset){
 function favorite(evt){
 	var target = evt.target.parentNode;
 	var targetImg = target.querySelector("img");
-
- 	/*
- 	console.log(target);
-	console.log(target.className);
-	*/
+	
 	if(target.className != "favorite-icon"){
 		console.log("done0");
 		return;
 	}
-
 	console.log(target.dataset.clicked);
+	//console.log(target.parentNode.parentNode);
+	//console.log(target.parentNode.parentNode.querySelector(".content-box"));
+	var xobj = new XMLHttpRequest();
+	var id = target.parentNode.parentNode.querySelector(".content-box").id;
+	//console.log("!!" +id);
+	var pageName = 'http://api.taegon.kim/posts/' + id +'/favorite';
+	xobj.open('post', pageName);
+	xobj.onreadystatechange = function(){
+       document.getElementById(id).favorite = xobj.responseText;
+    }
+	
 	if(target.dataset.clicked === "false"){
 		target.dataset.clicked = "true";
 		targetImg.src = "./star-clicked.png"
+		xobj.send(1);
 	} else {
 		target.dataset.clicked = "false";
 		targetImg.src = "./star-full.png"
+		xobj.send(0);
 	}
 }
 
