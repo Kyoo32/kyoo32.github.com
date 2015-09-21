@@ -2,8 +2,9 @@
 <html>	
 <head>
 	<title>My Twitter</title>
-	<link rel="stylesheet" type="text/css" href="twitter.css">
 	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="twitter.css">
+	<script type="text/javascript" src="twitter.js"></script>
 </head>
 <body>
 	<!-- header -->
@@ -53,31 +54,99 @@
 			<form method="post" action="http://api.taegon.kim/posts">
 				<img src="taegon.png">
 				<label for="content">
-				<textarea name="content" placeholder="내용을 입력하면 버튼이 진해집니다.">
-				</textarea> 
-				<button type="submit">Tweet</button>
+					<input type="hidden" name"username" value="taegon" display="none" visibility="hidden"></input>
+					<textarea onfocus="textAreaBigger(this)" onblur="textAreaInit(this)"
+					name="content" placeholder="내용을 입력하세요."></textarea>
+					<button type="submit" id="Tweet-button">Tweet</button>
+				</label>
 			</form>
-			</label>
 			</div>
 			<div class="tweetted-content-wrapper">
 				<div class="profile-img-box">
 					<img class="profile-img" src="taegon.png";>
+				</div>
+				<div class="content-box">
+					<br>
+					<span class="name">hi</span>
+					<span class="twit-name">@hello</span>
+				</div>
+				<div class="icons-box">
+					<div class="tweet-icon">
+						<img src="twitter.png">
+					</div>
+					<div class="favorite-icon">
+						<img src="star-full.png">
+					</div>	
 				</div>
 			</div>
 			<div class="tweetted-content-wrapper">
 				<div class="profile-img-box" >
 					<img class="profile-img" src="taegon.png";>
 				</div>
+				<div class="content-box">
+					<br>
+					<span class="name">hi</span>
+					<span class="twit-name">@hello</span>
+				</div>
+				<div class="icons-box">
+					<div class="tweet-icon">
+						<img src="twitter.png">
+					</div>
+					<div class="favorite-icon">
+						<img src="star-full.png">
+					</div>	
+				</div>
 			</div>
 			<div class="tweetted-content-wrapper">
 				<div class="profile-img-box">
 					<img class="profile-img" src="taegon.png";>
+				</div>
+				<div class="content-box">
+				</div>
+				<div class="icons-box">
+					<div class="tweet-icon">
+						<img src="twitter.png">
+					</div>
+					<div class="favorite-icon">
+						<img src="star-full.png">
+					</div>	
 				</div>
 			</div>
 		</section>
 		<!-- /main section -->
 	</main>
 	<!--/main -->
+	<script>
+
+		function textAreaBigger(evt){
+			console.log("done3");
+			console.log(evt);
+			if(evt.name !=="content") return;	
+			var wrapper = evt.parentNode.parentNode.parentNode;
+			wrapper.style.height = "160px";
+			var button = wrapper.querySelector("button");
+			button.style.visibility = "visible";
+		}
+
+		function textAreaInit(evt){
+			console.log("done4");
+			console.log(evt);
+			console.log(evt.name);
+			if(evt.name !=="content") return;	
+			var wrapper = evt.parentNode.parentNode.parentNode;
+			wrapper.style.height = "60px";
+			var button = wrapper.querySelector("button");
+			button.style.visibility= "hidden";
+		}
+		
+	/*
+		function blueButton(evt){
+			var button = evt.parentNode.parentNode.parentNode.querySelector("button");
+			console.log(button);
+			button.style.background-color = "blue";
+		}
+	*/
+	</script>
 </body>
 </html>
 
