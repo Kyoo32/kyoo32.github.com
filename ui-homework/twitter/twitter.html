@@ -55,8 +55,9 @@
 				<img src="taegon.png">
 				<label for="content">
 					<input type="hidden" name"username" value="taegon" display="none" visibility="hidden"></input>
-					<textarea onfocus="textAreaBigger(this)" onblur="textAreaInit(this)"
-					name="content" placeholder="내용을 입력하세요."></textarea>
+					<textarea data-focus ="false" onfocus="textAreaBigger(this)" onblur="textAreaInit(this)"
+					name="content" placeholder="내용을 입력하세요." maxlength="300"></textarea>
+					<div id ="char-count">300</div>
 					<button type="submit" id="Tweet-button">Tweet</button>
 				</label>
 			</form>
@@ -74,7 +75,7 @@
 					<div class="tweet-icon">
 						<img src="twitter.png">
 					</div>
-					<div class="favorite-icon">
+					<div class="favorite-icon" data-clicked="false">
 						<img src="star-full.png">
 					</div>	
 				</div>
@@ -92,7 +93,7 @@
 					<div class="tweet-icon">
 						<img src="twitter.png">
 					</div>
-					<div class="favorite-icon">
+					<div class="favorite-icon" data-clicked="false">
 						<img src="star-full.png">
 					</div>	
 				</div>
@@ -107,7 +108,7 @@
 					<div class="tweet-icon">
 						<img src="twitter.png">
 					</div>
-					<div class="favorite-icon">
+					<div class="favorite-icon" data-clicked="false">
 						<img src="star-full.png">
 					</div>	
 				</div>
@@ -121,7 +122,8 @@
 		function textAreaBigger(evt){
 			console.log("done3");
 			console.log(evt);
-			if(evt.name !=="content") return;	
+			if(evt.name !=="content") return;
+			evt.dataset.focus = "true";
 			var wrapper = evt.parentNode.parentNode.parentNode;
 			wrapper.style.height = "160px";
 			var button = wrapper.querySelector("button");
@@ -131,21 +133,15 @@
 		function textAreaInit(evt){
 			console.log("done4");
 			console.log(evt);
+			evt.dataset.focus = "false";
 			console.log(evt.name);
 			if(evt.name !=="content") return;	
 			var wrapper = evt.parentNode.parentNode.parentNode;
 			wrapper.style.height = "60px";
 			var button = wrapper.querySelector("button");
-			button.style.visibility= "hidden";
+			button.style.visibility = "hidden";
 		}
 		
-	/*
-		function blueButton(evt){
-			var button = evt.parentNode.parentNode.parentNode.querySelector("button");
-			console.log(button);
-			button.style.background-color = "blue";
-		}
-	*/
 	</script>
 </body>
 </html>

@@ -1,7 +1,9 @@
 
 
 function init(){
+	/*console.log("what");*/
 	document.addEventListener("click", favorite);
+	document.addEventListener("keyup", blueButtonAndCount);
 }
 
 function favorite(evt){
@@ -17,13 +19,38 @@ function favorite(evt){
 		return;
 	}
 
-	console.log(targetImg.src);
-	if(targetImg.src == "file:///Users/katekyuwon/my_git_page/kyoo32.github.com/ui-homework/twitter/star-clicked.png"){
-		targetImg.src = "file:///Users/katekyuwon/my_git_page/kyoo32.github.com/ui-homework/twitter/star-full.png"
-	} else if(targetImg.src == "file:///Users/katekyuwon/my_git_page/kyoo32.github.com/ui-homework/twitter/star-full.png"){
-		targetImg.src = "file:///Users/katekyuwon/my_git_page/kyoo32.github.com/ui-homework/twitter/star-clicked.png"
+	console.log(target.dataset.clicked);
+	if(target.dataset.clicked === "false"){
+		target.dataset.clicked = "true";
+		targetImg.src = "./star-clicked.png"
+	} else {
+		target.dataset.clicked = "false";
+		targetImg.src = "./star-full.png"
 	}
+}
 
+
+function blueButtonAndCount(){
+	console.log("haha");
+	var textArea = document.querySelector("textarea");
+	var button = document.querySelector("button");
+	var count = document.querySelector("#char-count");
+
+	if(textArea.dataset.focus == "false") {
+		console.log(textArea.dataset.focus);
+		return;
+	}
+	if(textArea.value.length === 0) {
+		console.log(button.style.backgroundColor);
+		if(button.style.backgroundColor === "rgb(0, 132, 180)")
+			button.style.backgroundColor = "grey";
+		count.innerHTML = 300;
+		return; 
+	}
+	
+	console.log(button);
+	button.style.backgroundColor = "#0084B4";
+	count.innerHTML = 300 - textArea.value.length;
 }
 
 
