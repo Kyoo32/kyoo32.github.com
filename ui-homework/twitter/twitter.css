@@ -1,0 +1,223 @@
+body {
+	margin: 0;
+	width: 1000px;
+	height: 1000px;
+	background-color: #F3F6F8;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+}
+/*header*/
+#global-header{
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 46px;
+	z-index: 100;
+	line-height: 44px;
+
+	padding-left: 15px;
+
+	background-color: white;
+	border-bottom: 1px solid #cacaca;
+}
+#global-header div{
+	position: relative;
+	float: left;
+	padding-right: 15px;
+	height: 42px;
+	line-height: 46px;
+
+	font-weight:  bold;
+}
+
+#global-header div:hover{
+	border-bottom: 4px solid #00848b;
+}
+#global-header div img{
+	width: 20px;
+	height: 20px;
+}
+#logo-div{
+	position: absolute;
+	
+	top: calc(50% - 20px);
+	left: calc((100% - 550px)/2);
+	z-index: 30;
+
+	width: 30px;
+	height: 30px;
+
+	background-image: url("twit-logo.png");
+	background-size: contain;
+	
+	margin: auto auto;
+	padding-right: 0;
+
+}
+#global-header div#logo-div:hover{
+	border: none;
+}
+/*-header*/
+
+main {
+	position: relative;
+	width: 900px;
+	margin-top: 50px;
+
+}
+/*left*/
+#left-side-bar{
+	position: relative;
+	float: left;
+	width: 290px;
+	margin: 10px 5px;
+
+}
+#my-profile-box-base{
+	position: relative;
+	height: 200px;
+	width: 100%;
+
+	background-color: white;
+	border-radius: 10px;
+}
+
+#my-profile-box-top-colored{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	height: 90px;
+	width: 100%;
+
+	background-color: #0084B4;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+#my-profile-box-base img{
+	position: absolute;
+	top: 65px;
+	left: 10px;
+	z-index: 20;
+
+	width: 72px;
+	height: 72px;
+	border-radius: 10px;
+	border: 5px solid white;
+}
+#my-profile-name{
+	position: relative;
+	width: 150px;
+	height: 50px;
+	top: 90px;
+	left: 100px;
+
+}
+
+#my-profile-name span.name{
+	font-size: 21px;
+	font-weight: bold;
+}
+#my-profile-name span.twit-name{
+	color:#63727B;
+}
+
+#my-profile-box-base div#my-profile-count{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	top: 100px;
+	left: 0;
+}
+#my-profile-count div.count{
+	position: relative;
+	float: left;
+
+	width: 80px;
+	padding-right: 5px;
+
+	color: grey; 
+}
+#my-profile-count div.count span{
+	color:#0084B4;
+}
+/*left*/
+/*-main*/
+#main-section{
+	position: relative;
+	float: left;
+	width:  590px;
+	margin: 10px 5px;
+}
+
+/*form*/
+#write-form-wrapper{
+	position: relative;
+	width: 100%;
+	height: 60px;
+
+	background-color: #E6F2F7;
+	border: 1px solid #0084B4;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px; 
+}
+#write-form-wrapper img{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 40px;
+	height: 40px;
+	z-index: 30;
+
+	border-radius: 10px;
+}
+#write-form-wrapper textarea{
+	position: relative;
+	margin-left: 60px;
+	top:10px;
+	height: 35px;
+	width: 470px;
+
+}
+#write-form-wrapper :focus{
+	height: 160px;
+}
+#write-form-wrapper textarea:focus{
+	height: 100px;
+}
+#write-form-wrapper button{
+	position: relative;
+	right: 0px;
+}
+/*--form*/
+
+/*tweeted-content*/
+.tweetted-content-wrapper{
+	position: relative;
+	width: 100%;
+	height: 100px;
+
+	background-color: white;
+	border-left:  1px solid #0084B4;
+	border-right: 1px solid #0084B4; 
+	border-bottom: 1px solid #0084B4;
+	transition: background-color 0.5s linear;
+}
+
+.tweetted-content-wrapper:hover{
+	background-color: #E6F2F7;
+}
+.profile-img-box{
+	position: relative;
+	width: 60px;
+	height: 60px;
+	padding: 20px;
+
+}
+.profile-img{
+	width: 60px;
+	height: 60px;
+
+	border-radius: 10px; 
+}

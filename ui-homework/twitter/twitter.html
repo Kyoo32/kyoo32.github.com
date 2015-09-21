@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>	
+<head>
+	<title>My Twitter</title>
+	<link rel="stylesheet" type="text/css" href="twitter.css">
+	<meta charset="UTF-8">
+</head>
+<body>
+	<!-- header -->
+	<header id = "global-header">
+		<div id = "home-icon">
+			<img src="home2.png"> Home
+		</div>
+		<div id = "notification-icon">
+			<img src="bell.png"> Notification
+		</div>
+		<div id = "message-icon">
+			<img src="comment.png"> Message
+		</div>
+		<div id="logo-div">
+		</div>
+	</header>
+	<!-- /header -->
+	<!-- main -->
+	<main>
+		<!-- leftside bar -->
+		<section id = "left-side-bar">
+			<div id= "my-profile-box-base">
+				<div id="my-profile-box-top-colored">
+				</div>
+				<img src="taegon.png">
+				<div id ="my-profile-name">
+					<br>
+					<span class="name">Kim Taegon</span><br>
+					<span class="twit-name">@taggon</span>
+				</div>
+				<div id="my-profile-count">
+					<div class="count">
+					Tweets<br><span class="count-num">423</span>
+					</div>
+					<div class="count">
+					Following<br><span class="count-num">27</span>
+					</div>
+					<div class="count">
+					Follower<br><span class="count-num">415</span>
+				</div>
+			</div>
+		</section>
+		<!-- /leftside bar -->
+		<!-- main section -->
+		<section id = "main-section">
+			<div id="write-form-wrapper">
+			<form method="post" action="http://api.taegon.kim/posts">
+				<img src="taegon.png">
+				<label for="content">
+				<textarea name="content" placeholder="내용을 입력하면 버튼이 진해집니다.">
+				</textarea> 
+				<button type="submit">Tweet</button>
+			</form>
+			</label>
+			</div>
+			<div class="tweetted-content-wrapper">
+				<div class="profile-img-box">
+					<img class="profile-img" src="taegon.png";>
+				</div>
+			</div>
+			<div class="tweetted-content-wrapper">
+				<div class="profile-img-box" >
+					<img class="profile-img" src="taegon.png";>
+				</div>
+			</div>
+			<div class="tweetted-content-wrapper">
+				<div class="profile-img-box">
+					<img class="profile-img" src="taegon.png";>
+				</div>
+			</div>
+		</section>
+		<!-- /main section -->
+	</main>
+	<!--/main -->
+</body>
+</html>
+
