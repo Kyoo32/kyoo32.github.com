@@ -54,7 +54,7 @@
 			<form method="post" action="http://api.taegon.kim/posts">
 				<img src="taegon.png">
 				<label for="content">
-					<input type="hidden" name"username" value="taegon" display="none" visibility="hidden"></input>
+					<input type="hidden" name="username" value="taegon" visibility="hidden"></input>
 					<textarea data-focus ="false" onfocus="textAreaBigger(this)" onblur="textAreaInit(this)"
 					name="content" placeholder="내용을 입력하세요." maxlength="300"></textarea>
 					<div id ="char-count">300</div>
@@ -70,12 +70,14 @@
 					<br>
 					<span class="name">hi</span>
 					<span class="twit-name">@hello</span>
+					<br>
+					안녕하세요.
 				</div>
 				<div class="icons-box">
-					<div class="tweet-icon">
+					<div class="tweet-icon"> 
 						<img src="twitter.png">
 					</div>
-					<div class="favorite-icon" data-clicked="false">
+					<div class="favorite-icon" data-clicked="false"> 
 						<img src="star-full.png">
 					</div>	
 				</div>
@@ -98,49 +100,12 @@
 					</div>	
 				</div>
 			</div>
-			<div class="tweetted-content-wrapper">
-				<div class="profile-img-box">
-					<img class="profile-img" src="taegon.png";>
-				</div>
-				<div class="content-box">
-				</div>
-				<div class="icons-box">
-					<div class="tweet-icon">
-						<img src="twitter.png">
-					</div>
-					<div class="favorite-icon" data-clicked="false">
-						<img src="star-full.png">
-					</div>	
-				</div>
-			</div>
 		</section>
 		<!-- /main section -->
 	</main>
 	<!--/main -->
 	<script>
 
-		function textAreaBigger(evt){
-			console.log("done3");
-			console.log(evt);
-			if(evt.name !=="content") return;
-			evt.dataset.focus = "true";
-			var wrapper = evt.parentNode.parentNode.parentNode;
-			wrapper.style.height = "160px";
-			var button = wrapper.querySelector("button");
-			button.style.visibility = "visible";
-		}
-
-		function textAreaInit(evt){
-			console.log("done4");
-			console.log(evt);
-			evt.dataset.focus = "false";
-			console.log(evt.name);
-			if(evt.name !=="content") return;	
-			var wrapper = evt.parentNode.parentNode.parentNode;
-			wrapper.style.height = "60px";
-			var button = wrapper.querySelector("button");
-			button.style.visibility = "hidden";
-		}
 		
 	</script>
 </body>
