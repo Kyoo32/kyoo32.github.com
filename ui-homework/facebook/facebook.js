@@ -9,9 +9,9 @@ function init(){
 
 
 function eventByScrollPoint(){
-	var ScrollPoint = calScrollPoint();
+	if(!calScrollPoint()) return;
 	console.log(ScrollPoint);
-	if(ScrollPoint > 0.2 && i<=5){
+	if(ScrollPoint > 0.2 && i==5){
 		addContentBox();
 		addContentBox();
 		addContentBox();
@@ -106,18 +106,27 @@ function calScrollPoint(){
 	var result = top / (scrollH - clientH);
 	return result;
 	*/
-  var scrOfY = 0;
-  if( typeof( window.pageYOffset ) == 'number' ) {
-    //Netscape compliant
-    scrOfY = window.pageYOffset;
-  } else if( document.body &&  document.body.scrollTop ) {
-    //DOM compliant
-    scrOfY = document.body.scrollTop;
-  } else if( document.documentElement && document.documentElement.scrollTop ) {
-    //IE6 standards compliant mode
-    scrOfY = document.documentElement.scrollTop;
-  }
-  return scrOfY;
+	/*
+	  var scrOfY = 0;
+	  if( typeof( window.pageYOffset ) == 'number' ) {
+	    //Netscape compliant
+	    scrOfY = window.pageYOffset;
+	  } else if( document.body &&  document.body.scrollTop ) {
+	    //DOM compliant
+	    scrOfY = document.body.scrollTop;
+	  } else if( document.documentElement && document.documentElement.scrollTop ) {
+	    //IE6 standards compliant mode
+	    scrOfY = document.documentElement.scrollTop;
+	  }
+	  return scrOfY;
+  */
+  	var scrollTop = document.body.scrollTop;
+	var scrollHeight = document.body.scrollHeight;
+	var height = window.innerHeight;
+
+	if(height >= scrollHeight-scrollTop - 50)
+		return true;
+	else return false;
 }
 
 
@@ -139,7 +148,7 @@ function loadJson(){
 	console.log("check");
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
-    var pageName = pageName = 'page' + i + '.json';
+    var pageName = 'page' + i + '.json';
     console.log(pageName);
     xobj.open('GET', pageName, true); // Replace 'my_data' with the path to your file
     xobj.onreadystatechange = function () {
@@ -220,7 +229,6 @@ function clickButton(evt){
 function fillContext(jsonPage){
 
 	var out = "";
-	var i;
 	var names = document.querySelectorAll(".content-name");
 	var contents = document.querySelectorAll(".content-content");
 	var likeCounts = document.querySelectorAll(".like-count");
